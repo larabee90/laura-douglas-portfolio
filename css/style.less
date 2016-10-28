@@ -14,6 +14,7 @@
 .page-content-basics() {
     font-family: @bodyFont;
     font-size: @baseFontSize;
+    letter-spacing: @letterSpacing;
     margin: 0 5rem 0 5rem;
     height: 100%;
 }
@@ -21,6 +22,10 @@
 * {
     margin: 0;
     padding: 0;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
@@ -31,6 +36,13 @@ body {
 .container {
     margin: 0 auto;
     width: @fullWidth;
+    min-height: 100%;
+    margin-bottom: -100px;
+    &:after {
+        content: "";
+        display: block;
+        height: 100px;
+    }
 }
 
 header {
