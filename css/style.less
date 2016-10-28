@@ -1,3 +1,4 @@
+//variables
 @fullWidth: 100%;
 @headerFont: 'Work Sans', sans-serif;
 @bodyFont: 'Open Sans', sans-serif;
@@ -6,6 +7,7 @@
 @blueColor: #2090b4;
 @baseFontSize: 1rem;
 
+//mixins
 .image-size() {
     width: 300px;
     height: 200px;
@@ -16,11 +18,17 @@
     font-size: @baseFontSize;
     margin: 0 5rem 0 5rem;
     height: 100%;
+    letter-spacing: @letterSpacing;
 }
 
+//css reset
 * {
     margin: 0;
     padding: 0;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
@@ -28,9 +36,18 @@ body {
 	background: #fff;
 }
 
+//page wrapper
 .container {
     margin: 0 auto;
     width: @fullWidth;
+    min-height: 100%;
+    margin-bottom: -100px;
+    //to acheive a sticky footer
+    &:after {
+        content: "";
+        display: block;
+        height: 100px;
+    }
 }
 
 header {
@@ -41,6 +58,7 @@ header {
     z-index: 999;
 }
 
+//top left of header
 .logo {
     position: absolute;
     top: 0.7rem;
@@ -50,6 +68,7 @@ header {
     font-size: 1.5rem;
 }
 
+//navigation
 ul {
     padding: 2rem 2rem 0 0;
     text-align: right;
@@ -71,12 +90,14 @@ ul {
     }
 }
 
+//main header of each page
 .page-title {
     width: @fullWidth;
     text-align: center;
     padding: 6rem 0 1rem 0;
 }
 
+//wrapper for the body content of the page
 .main-content-wrapper {
     text-align: center;
     margin: auto;
@@ -84,6 +105,7 @@ ul {
     padding: 2rem 0 1rem 0; 
 }
 
+//setting basic sizing and font styling for about and connect pages
 .about-me-info {
     .page-content-basics;
 }
@@ -110,10 +132,12 @@ h5 {
     margin-bottom: 2rem;
 }
 
+//sizing and spacing for the portfolio images
 .portfolio-images {
     padding: 7rem 0 1rem 0;
     & .img {
         display: inline-block;
+        //greyscale to color effect
         -webkit-filter: grayscale(100%);
         -webkit-transition: .5s ease-in-out;
         -moz-filter: grayscale(100%); 
@@ -121,6 +145,7 @@ h5 {
         -o-filter: grayscale(100%); 
         -o-transition: .5s ease-in-out;
         &:hover {
+            //greyscale turns to color on hover
             -webkit-filter: grayscale(0%);
             -webkit-transition: .5s ease-in-out;
             -moz-filter: grayscale(0%);
@@ -129,11 +154,11 @@ h5 {
             -o-transition: .5s ease-in-out;
         }
         .image-size;
-        background-color: yellow;
         margin: 1rem 2rem 1rem 2rem;
     }
 }
 
+//styling for the contact form
 form {
     margin-left: 6rem;
 }
@@ -165,6 +190,7 @@ input[type="submit"] {
     border-radius: 4px;
 }
 
+//styling for the footer
 footer {
     text-align: center;
     height: 100px;
